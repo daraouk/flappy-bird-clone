@@ -10,12 +10,18 @@ import com.mygdx.game.MyGdxGame;
  */
 public class MenuState extends State {
     private Texture background;
+    private Texture logo;
+    private Texture credits;
     private Texture playBtn;
+
+    private static final int CREDITS_OFFSET = 5;
 
     public MenuState(GameStateManager gsm) {
         super(gsm);
         cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
         background = new Texture("bg.png");
+        logo = new Texture("logo.png");
+        credits = new Texture("credits.png");
         playBtn = new Texture("playbtn.png");
     }
 
@@ -36,7 +42,9 @@ public class MenuState extends State {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
         sb.draw(background, 0, 0);
+        sb.draw(logo, cam.position.x - logo.getWidth() / 2, cam.position.y + playBtn.getHeight());
         sb.draw(playBtn, cam.position.x - playBtn.getWidth() / 2, cam.position.y);
+        sb.draw(credits, cam.viewportWidth - credits.getWidth() - CREDITS_OFFSET, CREDITS_OFFSET);
         sb.end();
     }
 
@@ -44,6 +52,8 @@ public class MenuState extends State {
     public void dispose() {
         background.dispose();
         playBtn.dispose();
+        logo.dispose();
+        credits.dispose();
 
         System.out.println("Menu State Disposed");
     }

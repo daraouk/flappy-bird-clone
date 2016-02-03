@@ -64,13 +64,13 @@ public class PlayState extends State {
             }
             // check for collision
             if(tube.collides(bird.getBounds())) {
-                gsm.set(new PlayState(gsm));
+                gsm.set(new MenuState(gsm));
             }
         }
 
         // kill bird if it touches ground
         if(bird.getPosition().y <= ground.getHeight() + GROUND_Y_OFFSET) {
-             gsm.set(new PlayState(gsm));
+             gsm.set(new MenuState(gsm));
         }
 
         cam.update(); // tell libGDX camera has been repositioned
