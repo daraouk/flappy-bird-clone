@@ -27,7 +27,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		gsm = new GameStateManager();
 		music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
 		music.setLooping(true);
-		music.setVolume(0.1f);
+		music.setVolume(0.3f);
 		music.play();
 		Gdx.gl.glClearColor(1, 0, 0, 1); // wipes screen fresh
 		gsm.push(new MenuState(gsm));
